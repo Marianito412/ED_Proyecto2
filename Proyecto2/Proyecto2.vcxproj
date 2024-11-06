@@ -158,9 +158,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClasesProyecto\" />
-    <Folder Include="Estructuras\Abstractas\" />
-    <Folder Include="Estructuras\Concretas\" />
     <Folder Include="Menu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Estructuras\Abstractas\Dictionary.h" />
+    <ClInclude Include="Estructuras\Abstractas\List.h" />
+    <ClInclude Include="Estructuras\Concretas\ArrayList.h" />
+    <ClInclude Include="Estructuras\Concretas\AVLTree.h" />
+    <ClInclude Include="Estructuras\Concretas\BSTDictionary.h" />
+    <ClInclude Include="Estructuras\Concretas\BSTNode.h" />
+    <ClInclude Include="Estructuras\Concretas\BSTree.h" />
+    <ClInclude Include="Estructuras\Concretas\DLinkedList.h" />
+    <ClInclude Include="Estructuras\Concretas\DNode.h" />
+    <ClInclude Include="Estructuras\Concretas\HashTable.h" />
+    <ClInclude Include="Estructuras\Concretas\KVPair.h" />
+    <ClInclude Include="Estructuras\Concretas\SNode.h" />
+    <ClInclude Include="Estructuras\Concretas\SplayTree.h" />
+    <ClInclude Include="Estructuras\Concretas\UnsortedArrayDictionary.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
