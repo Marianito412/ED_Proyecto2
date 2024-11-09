@@ -157,13 +157,16 @@
     <ClCompile Include="Proyecto2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ClasesProyecto\" />
-    <Folder Include="Menu\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="ClasesProyecto\Operation.h" />
+    <ClInclude Include="ClasesProyecto\OpGenerator.h" />
+    <ClInclude Include="ClasesProyecto\OpPartGenerator.h" />
+    <ClInclude Include="ClasesProyecto\RandomKeyGenerator.h" />
+    <ClInclude Include="ClasesProyecto\RandomTypeGenerator.h" />
+    <ClInclude Include="ClasesProyecto\StaticTypeGenerator.h" />
     <ClInclude Include="Estructuras\Abstractas\Dictionary.h" />
     <ClInclude Include="Estructuras\Abstractas\List.h" />
     <ClInclude Include="Estructuras\Concretas\ArrayList.h" />
+    <ClInclude Include="Estructuras\Concretas\AVLTDictionary.h" />
     <ClInclude Include="Estructuras\Concretas\AVLTree.h" />
     <ClInclude Include="Estructuras\Concretas\BSTDictionary.h" />
     <ClInclude Include="Estructuras\Concretas\BSTNode.h" />
@@ -174,7 +177,13 @@
     <ClInclude Include="Estructuras\Concretas\KVPair.h" />
     <ClInclude Include="Estructuras\Concretas\SNode.h" />
     <ClInclude Include="Estructuras\Concretas\SplayTree.h" />
+    <ClInclude Include="Estructuras\Concretas\STDictionary.h" />
     <ClInclude Include="Estructuras\Concretas\UnsortedArrayDictionary.h" />
+    <ClInclude Include="Menu\Helpers.h" />
+    <ClInclude Include="Menu\Menu.h" />
+    <ClInclude Include="Menu\Opciones\Funcion.h" />
+    <ClInclude Include="Menu\Opciones\Opcion.h" />
+    <ClInclude Include="Menu\Opciones\Submenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

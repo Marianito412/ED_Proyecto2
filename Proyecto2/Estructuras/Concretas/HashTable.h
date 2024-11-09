@@ -116,7 +116,7 @@ private:
         int result = 0;
         char* bytes = reinterpret_cast<char*>(&key);
         for (unsigned int i = 0; i < sizeof(T); i++) {
-            result += bytes[i] * pow(a, i);
+            result += (int)(bytes[i] * pow(a, i));
         }
         return result;
     }

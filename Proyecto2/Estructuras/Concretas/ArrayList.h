@@ -17,7 +17,18 @@ protected:
 	int max;
 	int size;
 	int pos;
+private:
+	void expand()
+	{
+		max = max*2;
+		E* newElements = new E[max];
+		
+		for (int i = 0; i <= size; i++)
+			newElements[i] = elements[i];
 
+		delete[] elements;
+		elements = newElements;
+	}
 public:
 	ArrayList(int max = DEFAULT_MAX) {
 		if (max < 1)
@@ -32,7 +43,7 @@ public:
 	}
 	void insert(E element) {
 		if (size == max)
-			throw runtime_error("List is full.");
+			expand();
 		for (int i = size; i > pos; i--)
 			elements[i] = elements[i - 1];
 		elements[pos] = element;
@@ -40,7 +51,7 @@ public:
 	}
 	void append(E element) {
 		if (size == max)
-			throw runtime_error("List is full.");
+			expand();
 		elements[size] = element;
 		size++;
 	}
