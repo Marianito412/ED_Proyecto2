@@ -20,7 +20,14 @@ void LoadDictRandom(Dictionary<int, int>* Dict)
     for (int i = 0; i<10000;i++)
     {
         int Random = rand()%1000;
-        Dict->insert(Random, Random);
+        try
+        {
+            Dict->insert(Random, Random);    
+        }
+        catch (...)
+        {
+        }
+        
     }
 }
 
@@ -34,27 +41,51 @@ void BenchmarkOperations(OpGenerator* OpGen)
     }
     OpGen->Generate();
     List<Operation>* Ops =OpGen->GetOps();
-    auto begin = std::chrono::high_resolution_clock::now();
-    for (Ops->goToStart(); Ops->atEnd(); Ops->next())
+    long long Aggregate = 0;
+    long long duration = 0;
+    for (Ops->goToStart(); !Ops->atEnd(); Ops->next())
     {
         Operation Op = Ops->getElement();
         if (Op.Op == OpType::Insert)
         {
-            OpGen->Dict->insert(Op.Key, Op.Key);
+            auto begin = std::chrono::high_resolution_clock::now();
+            try
+            {
+                OpGen->Dict->insert(Op.Key, Op.Key);
+            }
+            catch (...)
+            {
+                continue;
+            }
+            auto end = std::chrono::high_resolution_clock::now();
+            duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count();
         }
         if (Op.Op == OpType::Remove)
         {
-            OpGen->Dict->remove(Op.Key);
+            auto begin = std::chrono::high_resolution_clock::now();
+            try
+            {
+                OpGen->Dict->remove(Op.Key);
+            }
+            catch (...){ }
+            auto end = std::chrono::high_resolution_clock::now();
+            duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count();
         }
         if (Op.Op == OpType::Find)
         {
-            OpGen->Dict->getValue(Op.Key);
+            auto begin = std::chrono::high_resolution_clock::now();
+            try
+            {
+                OpGen->Dict->getValue(Op.Key);
+            }
+            catch (...){}
+            auto end = std::chrono::high_resolution_clock::now();
+            duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count();
         }
+        Aggregate += duration;
     }
     //Finalizar reloj
-    auto end = std::chrono::high_resolution_clock::now();
-    std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count()<<endl;
-    system("cls");
+    std::cout <<Aggregate<<endl;
 }
 
 void OperacionesMezcladas(Dictionary<int, int>* Dict)
@@ -109,19 +140,19 @@ void SelectDictType(OpGenerator* Generator)
     {
         Generator->Dict = new UnsortedArrayDictionary<int, int>();
     }
-    if (Resultado == "HashTable")
+    else if (Resultado == "HashTable")
     {
         Generator->Dict = new HashTable<int, int>();
     }
-    if (Resultado == "BSTDictionary")
+    else if (Resultado == "BSTDictionary")
     {
         Generator->Dict = new BSTDictionary<int, int>();
     }
-    if (Resultado == "AVLDictionary")
+    else if (Resultado == "AVLDictionary")
     {
         Generator->Dict = new AVLTDictionary<int, int>();
     }
-    if (Resultado == "SplayDictionary")
+    else if (Resultado == "SplayDictionary")
     {
         Generator->Dict = new STDictionary<int, int>();
     }
@@ -149,16 +180,17 @@ void SelectOpType(OpGenerator* Generator)
     {
         Generator->TypeGenerator = new StaticTypeGenerator(OpType::Insert);
     }
-    if (Resultado == "Borrado")
+    else if (Resultado == "Borrado")
     {
         Generator->TypeGenerator = new StaticTypeGenerator(OpType::Remove);
         LoadDictRandom(Generator->Dict);
     }
-    if (Resultado == "Busqueda")
+    else if (Resultado == "Busqueda")
     {
         Generator->TypeGenerator = new StaticTypeGenerator(OpType::Find);
+        LoadDictRandom(Generator->Dict);
     }
-    if (Resultado == "Operaciones Mezcladas")
+    else if (Resultado == "Operaciones Mezcladas")
     {
         Generator->TypeGenerator = new RandomTypeGenerator();
     }
@@ -184,11 +216,11 @@ void SelectKeyGen(OpGenerator* Generator)
     {
         Generator->KeyGenerator = nullptr;
     }
-    if (Resultado == "Aleatorio")
+    else if (Resultado == "Aleatorio")
     {
         Generator->KeyGenerator = new RandomKeyGenerator();
     }
-    if (Resultado == "Grupos")
+    else if (Resultado == "Grupos")
     {
         Generator->KeyGenerator = nullptr;
     }
@@ -199,9 +231,11 @@ void SelectKeyGen(OpGenerator* Generator)
 int main()
 {
     srand(NULL);
+    /*
     Dictionary<int, int>* TestDict = new HashTable<int, int>();
     OperacionesMezcladas(TestDict);
     delete TestDict;
+    */
     
     Funcion<OpGenerator>* DictTypes = new Funcion<OpGenerator>("Tipo de Diccionario", SelectDictType);
     Funcion<OpGenerator>* OpTypes = new Funcion<OpGenerator>("Tipo de Operaciones", SelectOpType);
