@@ -39,6 +39,9 @@ void BenchmarkOperations(OpGenerator* OpGen)
               "Asegurese de haber escojido Diccionario, Operaciones y Llaves"<<endl;
         return;
     }
+    OpGen->TypeGenerator->Reset();
+    OpGen->KeyGenerator->Reset();
+    
     OpGen->Generate();
     List<Operation>* Ops =OpGen->GetOps();
     long long Aggregate = 0;
