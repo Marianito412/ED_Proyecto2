@@ -218,7 +218,7 @@ void SelectKeyGen(OpGenerator* Generator)
 
     if (Resultado == "Ascendente")
     {
-        Generator->KeyGenerator = nullptr;
+        Generator->KeyGenerator = new AscendingKeyGenerator();
     }
     else if (Resultado == "Aleatorio")
     {
