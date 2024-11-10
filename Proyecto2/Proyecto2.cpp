@@ -11,6 +11,7 @@
 #include "Estructuras/Concretas/HashTable.h"
 #include "Estructuras/Concretas/STDictionary.h"
 #include "Estructuras/Concretas/UnsortedArrayDictionary.h"
+#include "ClasesProyecto/AscendingKeyGenerator.h"
 #include "Menu/Helpers.h"
 #include "Menu/Menu.h"
 #include "Menu/Opciones/Funcion.h"
@@ -19,7 +20,7 @@ void LoadDictRandom(Dictionary<int, int>* Dict)
 {
     for (int i = 0; i<10000;i++)
     {
-        int Random = rand()%1000;
+        int Random = rand()%10000;
         try
         {
             Dict->insert(Random, Random);    
