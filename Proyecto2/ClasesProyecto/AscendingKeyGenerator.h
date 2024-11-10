@@ -18,10 +18,10 @@ public:
 
             if (Op->Op == OpType::Remove)
             {
-                while (Dict->contains(i)) {
-                    Dict->remove(i);
+                while (!Dict->contains(i)) {
+                    i++;
                 }
-                i++;
+                Op->Key = i;
             }
 		}
 	
