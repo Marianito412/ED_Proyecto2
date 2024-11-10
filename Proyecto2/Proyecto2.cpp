@@ -15,6 +15,7 @@
 #include "Menu/Helpers.h"
 #include "Menu/Menu.h"
 #include "Menu/Opciones/Funcion.h"
+#include "ClasesProyecto/GroupKeyGenerator.h"
 
 void LoadDictRandom(Dictionary<int, int>* Dict)
 {
@@ -28,7 +29,6 @@ void LoadDictRandom(Dictionary<int, int>* Dict)
         catch (...)
         {
         }
-        
     }
 }
 
@@ -226,7 +226,7 @@ void SelectKeyGen(OpGenerator* Generator)
     }
     else if (Resultado == "Grupos")
     {
-        Generator->KeyGenerator = nullptr;
+        Generator->KeyGenerator = new GroupKeyGenerator();
     }
     delete KeyGens;
     system("cls");
