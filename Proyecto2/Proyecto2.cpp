@@ -45,51 +45,40 @@ void BenchmarkOperations(OpGenerator* OpGen)
     
     OpGen->Generate();
     List<Operation>* Ops =OpGen->GetOps();
-    long long Aggregate = 0;
     long long duration = 0;
+    auto begin = std::chrono::high_resolution_clock::now();
     for (Ops->goToStart(); !Ops->atEnd(); Ops->next())
     {
         Operation Op = Ops->getElement();
         if (Op.Op == OpType::Insert)
         {
-            auto begin = std::chrono::high_resolution_clock::now();
             try
             {
                 OpGen->Dict->insert(Op.Key, Op.Key);
             }
-            catch (...)
-            {
-                continue;
-            }
-            auto end = std::chrono::high_resolution_clock::now();
-            duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count();
+            catch (...){ }
         }
         if (Op.Op == OpType::Remove)
         {
-            auto begin = std::chrono::high_resolution_clock::now();
             try
             {
                 OpGen->Dict->remove(Op.Key);
             }
             catch (...){ }
-            auto end = std::chrono::high_resolution_clock::now();
-            duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count();
         }
         if (Op.Op == OpType::Find)
         {
-            auto begin = std::chrono::high_resolution_clock::now();
             try
             {
-                OpGen->Dict->getValue(Op.Key);
+                OpGen->Dict->contains(Op.Key);
             }
             catch (...){}
-            auto end = std::chrono::high_resolution_clock::now();
-            duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count();
         }
-        Aggregate += duration;
     }
     //Finalizar reloj
-    std::cout <<Aggregate<<endl;
+    auto end = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count();
+    std::cout <<duration<<endl;
 }
 
 void OperacionesMezcladas(Dictionary<int, int>* Dict)

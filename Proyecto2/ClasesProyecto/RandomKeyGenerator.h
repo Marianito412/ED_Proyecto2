@@ -10,7 +10,7 @@ public:
         {
             Op->Key = rand()%40000;
         }
-        if (Op->Op == 1)
+        if (Op->Op == OpType::Remove)
         {
             int Key;
             do

@@ -4,11 +4,11 @@
 
 /*  
     Autor: Javier Vega Abarca
-    Recibe: Operation Type, que es una enumeración de las distintas opciones que se pueden realizar en el diccionario. Y el diccionario.
+    Recibe: Operation Type, que es una enumeraciï¿½n de las distintas opciones que se pueden realizar en el diccionario. Y el diccionario.
     Funcion: Tiene 2 atributos:
-        1- tamanno: es el tamaño de los grupos para ir iterando, se genera de manera random
-        2- actual: se genera un numero aleatorio y luego se va iterando sobre él la cantidad de veces que tamanno diga.
-    Ésto va a generar una key válida según el caso en el que se usen Keys por Grupos.
+        1- tamanno: es el tamaï¿½o de los grupos para ir iterando, se genera de manera random
+        2- actual: se genera un numero aleatorio y luego se va iterando sobre ï¿½l la cantidad de veces que tamanno diga.
+    ï¿½sto va a generar una key vï¿½lida segï¿½n el caso en el que se usen Keys por Grupos.
 */
 
 class GroupKeyGenerator : public OpPartGenerator
@@ -28,7 +28,7 @@ public:
             actual++;
             tamanno--;
         }
-        if (Op->Op == OpType::Borrado) {
+        if (Op->Op == OpType::Remove) {
             int Key;
             do
             {
