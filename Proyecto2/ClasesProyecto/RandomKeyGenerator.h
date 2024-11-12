@@ -1,6 +1,12 @@
 ﻿#pragma once
 #include "OpPartGenerator.h"
 
+/*
+ * Autor: Mariano Soto
+ * Esta clase genera una llave aleatoria para cualquier tipo de operación.
+ * Si la operación es borrado, se asegura que la llave exista en el diccionario
+ */
+
 class RandomKeyGenerator : public OpPartGenerator
 {
 public:

@@ -1,6 +1,11 @@
 ﻿#pragma once
 #include "OpPartGenerator.h"
 
+/*
+ * Autor: Mariano Soto
+ * Esta clase genera un tipo de operación aleatoria
+ */
+
 class RandomTypeGenerator : public OpPartGenerator
 {
 public:

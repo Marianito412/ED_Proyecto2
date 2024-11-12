@@ -157,6 +157,7 @@
     <ClCompile Include="Proyecto2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ClasesProyecto\AscendingKeyGenerator.h" />
     <ClInclude Include="ClasesProyecto\GroupKeyGenerator.h" />
     <ClInclude Include="ClasesProyecto\Operation.h" />
     <ClInclude Include="ClasesProyecto\OpGenerator.h" />
