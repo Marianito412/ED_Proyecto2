@@ -3,6 +3,11 @@
 #include "KVPair.h"
 #include "../Abstractas/Dictionary.h"
 
+/*
+* Clase Concreta de los AVLTDictionary
+* Escrita por el profesor en clase
+*/
+
 template <typename K, typename V>
 class AVLTDictionary: public Dictionary<K, V>
 {

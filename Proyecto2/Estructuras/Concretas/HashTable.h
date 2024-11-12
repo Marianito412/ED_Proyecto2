@@ -1,6 +1,11 @@
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
+/*
+* Clase Concreta de las HashTables
+* Escrita por el profesor en clase
+*/
+
 #include <iostream>
 #include <string>
 #include <stdexcept>

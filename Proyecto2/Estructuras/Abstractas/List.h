@@ -1,5 +1,10 @@
 #pragma once
 
+/*
+* Clase abstracta de listas
+* Escrita por el profesor en clase
+*/
+
 template <typename E>
 class List {
 private:

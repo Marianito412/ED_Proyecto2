@@ -1,5 +1,10 @@
 #pragma once
 
+/*
+* Clase Concreta del UnsortedArrayDictionary
+* Escrita por el profesor en clase
+*/
+
 #include <stdexcept>
 #include "../Abstractas/Dictionary.h"
 #include "ArrayList.h"

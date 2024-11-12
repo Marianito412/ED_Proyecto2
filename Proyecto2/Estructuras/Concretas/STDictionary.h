@@ -3,6 +3,11 @@
 #include "SplayTree.h"
 #include "../Abstractas/Dictionary.h"
 
+/*
+* Clase Concreta de los STDictionary
+* Escrita por el profesor en clase
+*/
+
 template <typename K, typename V>
 class STDictionary: public Dictionary<K, V>
 {

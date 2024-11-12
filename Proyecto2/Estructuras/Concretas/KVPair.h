@@ -1,6 +1,11 @@
 #pragma once
 #include <iostream>
 
+/*
+* Clase Concreta de KVPair
+* Escrita por el profesor en clase
+*/
+
 using std::ostream;
 
 template <typename K, typename V>

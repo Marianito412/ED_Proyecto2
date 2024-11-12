@@ -1,6 +1,11 @@
 #ifndef SNODE_H
 #define SNODE_H
 
+/*
+* Clase Concreta de los SNodes
+* Escrita por el profesor en clase
+*/
+
 template <typename E>
 class SNode {
 public:

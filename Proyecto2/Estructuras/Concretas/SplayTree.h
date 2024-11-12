@@ -1,6 +1,10 @@
 #ifndef SPLAYTREE_H
 #define SPLAYTREE_H
 
+/*
+* Clase Concreta de los SplayTrees
+* Escrita por el profesor en clase
+*/
 
 #include <stdexcept>
 #include <iostream>

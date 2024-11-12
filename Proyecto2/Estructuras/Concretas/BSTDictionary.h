@@ -1,5 +1,10 @@
 #pragma once
 
+/*
+* Clase Concreta de los BSTDictionary
+* Escrita por el profesor en clase
+*/
+
 #include <stdexcept>
 #include "../Abstractas/Dictionary.h"
 #include "KVPair.h"
