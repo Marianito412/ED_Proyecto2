@@ -1,7 +1,10 @@
 #pragma once
 
 #include "List.h"
-
+/*
+* Clase abstracta de los diccionarios
+* Escrita por el profesor en clase
+*/
 template <typename K, typename V>
 class Dictionary {
 private:
