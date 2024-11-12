@@ -1,5 +1,8 @@
 #pragma once
-
+/*
+* Clase del BSTNode, junto con sus funciones
+* Escrita por el profesor en la clase
+*/
 template <typename E>
 class BSTNode {
 public:

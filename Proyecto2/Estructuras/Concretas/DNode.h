@@ -1,5 +1,8 @@
 #pragma once
-
+/*
+* Clase del nodo doblemente enlazado, tiene dos constructores
+* Escrito por el profesor
+*/
 template <typename E>
 class DNode {
 public:

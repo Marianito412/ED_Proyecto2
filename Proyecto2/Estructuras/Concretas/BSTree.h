@@ -8,7 +8,10 @@
 using std::runtime_error;
 using std::cout;
 using std::endl;
-
+/*
+* Clase del BSTree con todas sus funciones
+* Escrita por el profesor en la clase
+*/
 template <typename E>
 class BSTree {
 private:

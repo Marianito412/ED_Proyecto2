@@ -1,5 +1,8 @@
 #pragma once
-
+/*
+  Clase del arraylist con todas sus fonciones
+  Escrito por el profesor en clase, a excepción del expand
+*/
 #define DEFAULT_MAX 1024
 
 #include <stdexcept>

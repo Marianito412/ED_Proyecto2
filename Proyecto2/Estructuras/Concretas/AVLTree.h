@@ -3,7 +3,10 @@
 #include <iostream>
 #include "BSTNode.h"
 #include "DLinkedList.h"
-
+/*
+ Clase del AVLTree con todas sus funciones
+ Escrita por el profesor en clase
+*/
 using std::runtime_error;
 using std::cout;
 using std::endl;
