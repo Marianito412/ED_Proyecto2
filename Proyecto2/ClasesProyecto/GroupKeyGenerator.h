@@ -16,12 +16,16 @@ class GroupKeyGenerator : public OpPartGenerator
 public:
     int tamanno;
     int actual;
-    
+    void Reset()
+    {
+        tamanno = 0;
+        actual = 0;
+    }
     void Next(Operation* Op, Dictionary<int, int>* Dict)
     {
         if (Op->Op == OpType::Insert || Op->Op == OpType::Find) {
-            if (tamanno = 0) { 
-                tamanno = rand() % 500; 
+            if (tamanno == 0) { 
+                tamanno = 10 + rand() % 40; 
                 actual += rand() % 400; 
             }
             Op->Key = actual;
@@ -32,11 +36,13 @@ public:
             int Key;
             do
             {
-                if (tamanno = 0) {
-                    tamanno = rand() % 500;
-                    actual += rand() % 400;
+                if (tamanno == 0) { 
+                    tamanno = 10 + rand() % 40; 
+                    actual += rand() % 400; 
                 }
-                Key = actual;
+                Op->Key = actual;
+                actual++;
+                tamanno--;
             } while (Dict->contains(Key));
             Op->Key = Key;
         }
