@@ -8,6 +8,11 @@ enum OpType
     Find = 2
 };
 
+/*
+ * Autor: Mariano Soto
+ * Esta clase es únicamente utilizada para describir una operación a realizar sobre un diccionario
+ * Describe el tipo de operación y la llave sobre la cual realizar la operación
+ */
 class Operation
 {
 public:

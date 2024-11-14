@@ -17,20 +17,9 @@
 #include "Menu/Opciones/Funcion.h"
 #include "ClasesProyecto/GroupKeyGenerator.h"
 
-void LoadDictRandom(Dictionary<int, int>* Dict)
-{
-    for (int i = 0; i<10000;i++)
-    {
-        int Random = rand()%10000;
-        try
-        {
-            Dict->insert(Random, Random);    
-        }
-        catch (...)
-        {
-        }
-    }
-}
+/*
+ * Esta función se encarga de utilizar el generador creado, procesar las operaciones y medir el tiempo
+ */
 
 void BenchmarkOperations(OpGenerator* OpGen)
 {
@@ -81,35 +70,19 @@ void BenchmarkOperations(OpGenerator* OpGen)
     std::cout <<duration<<endl;
 }
 
-void OperacionesMezcladas(Dictionary<int, int>* Dict)
+void LoadDictRandom(Dictionary<int, int>* Dict)
 {
-    //Generar operaciones aleatorias
-    OpGenerator* OpGen = new OpGenerator(Dict, 10000, new RandomTypeGenerator(), new RandomKeyGenerator());
-    OpGen->Generate();
-    List<Operation>* Ops =OpGen->GetOps();
-    
-    //Iniciar reloj luego de generación de operaciones
-    auto begin = std::chrono::high_resolution_clock::now();
-    for (Ops->goToStart(); Ops->atEnd(); Ops->next())
+    for (int i = 0; i<10000;i++)
     {
-        Operation Op = Ops->getElement();
-        if (Op.Op == OpType::Insert)
+        int Random = rand()%10000;
+        try
         {
-            Dict->insert(Op.Key, Op.Key);
+            Dict->insert(Random, Random);    
         }
-        if (Op.Op == OpType::Remove)
+        catch (...)
         {
-            Dict->remove(Op.Key);
-        }
-        if (Op.Op == OpType::Find)
-        {
-            Dict->getValue(Op.Key);
         }
     }
-    //Finalizar reloj
-    auto end = std::chrono::high_resolution_clock::now();
-    std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count()<<endl;
-    delete OpGen;
 }
 
 void SelectDictType(OpGenerator* Generator)

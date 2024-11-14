@@ -1,6 +1,11 @@
 ﻿#pragma once
 #include "OpPartGenerator.h"
 
+/*
+ * Autor: Mariano Soto
+ * Este generador crea tipos de operaciones de un único tipo definido en el constructor
+ */
+
 class StaticTypeGenerator : public OpPartGenerator
 {
 public:

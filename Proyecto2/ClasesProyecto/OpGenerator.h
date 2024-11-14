@@ -5,6 +5,12 @@
 #include "../Estructuras/Abstractas/List.h"
 #include "../Estructuras/Concretas/ArrayList.h"
 
+/*
+ *Autor: Mariano Soto
+ *Esta clase se encarga de producir una lista de Operaciones, utilizando un generador
+ *de tipos de operacion y un generador de llaves.
+ */
+
 class OpGenerator
 {
 public:
