@@ -4,7 +4,10 @@
 #include <iostream>
 #include "../Abstractas/List.h"
 #include "DNode.h"
-
+/*
+  Clase de la DLinkedList con todas sus funciones
+* Escrita por el profesor en la clase
+*/
 using std::runtime_error;
 using std::cout;
 using std::endl;
