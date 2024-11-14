@@ -18,7 +18,8 @@
 #include "ClasesProyecto/GroupKeyGenerator.h"
 
 /*
- * Esta función se encarga de utilizar el generador creado, procesar las operaciones y medir el tiempo
+ * Esta función se encarga de utilizar el generador creado, procesar las operaciones y medir el tiempo. Es básciamente el main
+ * Autor: Mariano Soto
  */
 
 void BenchmarkOperations(OpGenerator* OpGen)
