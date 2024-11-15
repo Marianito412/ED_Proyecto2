@@ -33,7 +33,6 @@ public:
             tamanno--;
         }
         if (Op->Op == OpType::Remove) {
-            int Key;
             do
             {
                 if (tamanno == 0) { 
@@ -43,8 +42,7 @@ public:
                 Op->Key = actual;
                 actual++;
                 tamanno--;
-            } while (Dict->contains(Key));
-            Op->Key = Key;
+            } while (Dict->contains(Op->Key));
         }
     }
 };
